@@ -13,6 +13,28 @@
 
 /*
 |---------------------------------------------------------------
+| DEFAULT INI SETTINGS
+|---------------------------------------------------------------
+|
+| Hosts have a habbit of setting stupid settings for various
+| things. These settings should help provide maximum compatibility
+|
+*/
+
+	// Let's hold Windows' hand and set a include_path in case it forgot
+	set_include_path(dirname(__FILE__));
+
+	// Some hosts (was it GoDaddy? complained without this
+	@ini_set('cgi.fix_pathinfo', 0);
+
+	// PHP 5.3 will BITCH without this
+	if(ini_get('date.timezone') == '')
+	{
+		date_default_timezone_set('GMT');
+	}
+
+/*
+|---------------------------------------------------------------
 | SYSTEM FOLDER NAME
 |---------------------------------------------------------------
 |
@@ -40,7 +62,7 @@
 | NO TRAILING SLASH!
 |
 */
-	$application_folder = "application";
+	$application_folder = "ack";
 
 /*
 |===============================================================
