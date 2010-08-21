@@ -11,7 +11,7 @@
 |	http://example.com/
 |
 */
-$config['base_url']	= "http://example.com/";
+$config['base_url']	= BASE_URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +23,7 @@ $config['base_url']	= "http://example.com/";
 | variable so that it is blank.
 |
 */
-$config['index_page'] = "index.php";
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ $config['index_page'] = "index.php";
 | 'ORIG_PATH_INFO'	Uses the ORIG_PATH_INFO
 |
 */
-$config['uri_protocol']	= "AUTO";
+$config['uri_protocol']	= 'AUTO';
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ $config['uri_protocol']	= "AUTO";
 | http://codeigniter.com/user_guide/general/urls.html
 */
 
-$config['url_suffix'] = "";
+$config['url_suffix'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -66,7 +66,7 @@ $config['url_suffix'] = "";
 | than english.
 |
 */
-$config['language']	= "english";
+$config['language']	= 'english';
 
 /*
 |--------------------------------------------------------------------------
@@ -77,7 +77,7 @@ $config['language']	= "english";
 | that require a character set to be provided.
 |
 */
-$config['charset'] = "UTF-8";
+$config['charset'] = 'UTF-8';
 
 /*
 |--------------------------------------------------------------------------
@@ -148,7 +148,7 @@ $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 | use segment based URLs.
 |
 */
-$config['enable_query_strings'] = FALSE;
+$config['enable_query_strings'] = TRUE;
 $config['controller_trigger'] 	= 'c';
 $config['function_trigger'] 	= 'm';
 $config['directory_trigger'] 	= 'd'; // experimental not currently in use
@@ -173,7 +173,7 @@ $config['directory_trigger'] 	= 'd'; // experimental not currently in use
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+$config['log_threshold'] = 1;
 
 /*
 |--------------------------------------------------------------------------
@@ -217,7 +217,7 @@ $config['cache_path'] = '';
 | enabled you MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = "";
+$config['encryption_key'] = 'u7PLi2Qg=v)ncPWWXi+z%f~|Lb8E@O:+`yPFGg&wB&lR1<wB2PE<./r8^3_O~^Z}';
 
 /*
 |--------------------------------------------------------------------------
@@ -231,7 +231,7 @@ $config['encryption_key'] = "";
 | 'time_to_update'		= how many seconds between CI refreshing Session Information
 |
 */
-$config['sess_cookie_name']		= 'ci_session';
+$config['sess_cookie_name']		= 'ack_session';
 $config['sess_expiration']		= 7200;
 $config['sess_encrypt_cookie']	= FALSE;
 $config['sess_use_database']	= FALSE;
@@ -250,9 +250,9 @@ $config['sess_time_to_update'] 	= 300;
 | 'cookie_path'   =  Typically will be a forward slash
 |
 */
-$config['cookie_prefix']	= "";
-$config['cookie_domain']	= "";
-$config['cookie_path']		= "/";
+$config['cookie_prefix']	= '';
+$config['cookie_domain']	= ($_SERVER['SERVER_NAME'] == 'localhost' ? '' : preg_replace('/^www\./', '', $_SERVER['SERVER_NAME']));
+$config['cookie_path']	    = BASE_URI;
 
 /*
 |--------------------------------------------------------------------------
@@ -295,7 +295,7 @@ $config['compress_output'] = FALSE;
 | regarding date handling.
 |
 */
-$config['time_reference'] = 'local';
+$config['time_reference'] = 'gmt';
 
 
 /*
@@ -324,6 +324,23 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
+
+/*
+| -------------------------------------------------------------------
+|  Native Auto-load
+| -------------------------------------------------------------------
+| 
+| Nothing to do with config/autoload.php, this allows PHP autoload to work
+| for controller types and some third-party libraries.
+|
+*/
+function __autoload($class)
+{
+	if(strpos($class, 'CI_') !== 0)
+	{
+		@include_once( APPPATH . 'libraries/'. $class . EXT );
+	}
+}
 
 /* End of file config.php */
 /* Location: ./system/application/config/config.php */

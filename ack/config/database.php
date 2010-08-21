@@ -37,19 +37,30 @@
 $active_group = "default";
 $active_record = TRUE;
 
-$db['default']['hostname'] = "localhost";
-$db['default']['username'] = "";
-$db['default']['password'] = "";
-$db['default']['database'] = "";
-$db['default']['dbdriver'] = "mysql";
-$db['default']['dbprefix'] = "";
-$db['default']['pconnect'] = TRUE;
-$db['default']['db_debug'] = TRUE;
-$db['default']['cache_on'] = FALSE;
-$db['default']['cachedir'] = "";
-$db['default']['char_set'] = "utf8";
-$db['default']['dbcollat'] = "utf8_general_ci";
+$db['local']['hostname'] = "localhost";
+$db['local']['username'] = "";
+$db['local']['password'] = "";
+$db['local']['database'] = "";
+$db['local']['dbdriver'] = "mysqli";
+$db['local']['dbprefix'] = "";
+$db['local']['active_r'] = TRUE;
+$db['local']['pconnect'] = TRUE;
+$db['local']['db_debug'] = TRUE;
+$db['local']['cache_on'] = FALSE;
+$db['local']['cachedir'] = "";
+$db['local']['char_set'] = "utf8";
+$db['local']['dbcollat'] = "utf8_general_ci";
+$db['local']['port'] 	 = 3306;
 
+
+// Check the configuration group in use exists
+if(!array_key_exists(ENV, $db))
+{
+	show_error(sprintf(lang('error_invalid_db_group'), ENV));
+}
+
+// Assign the group to be used
+$active_group = ENV;
 
 /* End of file database.php */
 /* Location: ./system/application/config/database.php */

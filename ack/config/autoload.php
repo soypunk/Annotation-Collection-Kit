@@ -39,7 +39,7 @@
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array();
+$autoload['libraries'] = array('database');
 
 
 /*
@@ -63,7 +63,7 @@ $autoload['helper'] = array();
 |	$autoload['plugin'] = array('captcha', 'js_calendar');
 */
 
-$autoload['plugin'] = array();
+$autoload['plugin'] = array('url','date');
 
 
 /*
