@@ -63,4 +63,4 @@ if(!array_key_exists(ENV, $db))
 $active_group = ENV;
 
 /* End of file database.php */
-/* Location: ./system/application/config/database.php */
+/* Location: ./ack/config/database.php */

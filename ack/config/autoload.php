@@ -39,7 +39,7 @@
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database');
+$autoload['libraries'] = array('database','ci');
 
 
 /*
@@ -113,4 +113,4 @@ $autoload['model'] = array();
 
 
 /* End of file autoload.php */
-/* Location: ./system/application/config/autoload.php */
+/* Location: ./ack/config/autoload.php */

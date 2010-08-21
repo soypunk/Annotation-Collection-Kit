@@ -127,4 +127,4 @@ define('ACK_VERSION', '2.0.0');
 define('ACK_DATE', '2010/08/21');
 
 /* End of file constants.php */
-/* Location: ./system/application/config/constants.php */
+/* Location: ./ack/config/constants.php */

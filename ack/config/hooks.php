@@ -10,7 +10,26 @@
 |
 */
 
+// This is required to load the Exceptions library early enough
+$hook['pre_system'][] = array(
+	'function' => 'load_exceptions',
+	'filename' => 'uhoh.php',
+	'filepath' => 'hooks',
+);
 
+// Query String Patching
+$hook['pre_system'][] = array(
+	'class'		=> 'Query_String',
+	'function'	=> 'clean_uri',
+	'filename'	=> 'query_string.php',
+	'filepath'	=> 'hooks'
+);
+$hook['pre_controller'] = array(
+	'class'		=> 'Query_String',
+	'function'	=> 'recreate_get',
+	'filename'	=> 'query_string.php',
+	'filepath'	=> 'hooks'
+);
 
 /* End of file hooks.php */
-/* Location: ./system/application/config/hooks.php */
+/* Location: ./ack/config/hooks.php */

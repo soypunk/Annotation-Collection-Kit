@@ -1,10 +1,10 @@
 <?php
 
-class Welcome extends Controller {
+class Welcome extends My_Controller {
 
-	function Welcome()
+	function __construct()
 	{
-		parent::Controller();	
+		parent::__construct();	
 	}
 	
 	function index()
@@ -14,4 +14,4 @@ class Welcome extends Controller {
 }
 
 /* End of file welcome.php */
-/* Location: ./system/application/controllers/welcome.php */
+/* Location: ./ack/controllers/welcome.php */

@@ -88,7 +88,7 @@ $config['charset'] = 'UTF-8';
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
 */
-$config['enable_hooks'] = FALSE;
+$config['enable_hooks'] = TRUE;
 
 
 /*
@@ -343,4 +343,4 @@ function __autoload($class)
 }
 
 /* End of file config.php */
-/* Location: ./system/application/config/config.php */
+/* Location: ./ack/config/config.php */
