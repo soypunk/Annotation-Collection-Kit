@@ -51,7 +51,7 @@ $autoload['libraries'] = array('database');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array();
+$autoload['helper'] = array('url','date');
 
 
 /*
@@ -63,7 +63,7 @@ $autoload['helper'] = array();
 |	$autoload['plugin'] = array('captcha', 'js_calendar');
 */
 
-$autoload['plugin'] = array('url','date');
+$autoload['plugin'] = array();
 
 
 /*
