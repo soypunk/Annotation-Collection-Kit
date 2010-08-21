@@ -1,0 +1,3 @@
+.DS_Store
+ack/cache/*
+codeigniter/logs/log-*.php
